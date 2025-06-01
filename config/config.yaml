@@ -1,0 +1,10 @@
+protocol_filter: ["http", "dns"]
+learning: true
+llm_model: "llama3"
+embedding_model: "all-MiniLM-L6-v2"
+watch_folder: "./logs"
+processed_folder: "./processed"
+vector_db_path: "./data/faiss.index"
+learned_store: "./data/learned_data.jsonl"
+llm_backend: "huggingface"  # Options: huggingface | ollama
+llm_model: "mistralai/Mistral-7B-Instruct-v0.1"

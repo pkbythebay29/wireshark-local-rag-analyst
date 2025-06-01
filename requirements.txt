@@ -1,0 +1,10 @@
+pyyaml                     # For config loading
+watchdog                  # For folder monitoring (PCAP watch)
+sentence-transformers     # For local embeddings
+faiss-cpu                 # For vector DB (FAISS)
+ollama                    # For local LLMs via Ollama API
+fastapi                   # For MCP-compatible HTTP server
+uvicorn                   # For running FastAPI server
+transformers              # For direct Hugging Face model support
+torch                     # Needed for Hugging Face models
+accelerate                # Optimizes model loading/inference

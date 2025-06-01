@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wireshark-rag-analyst"
+version = "0.1.0"
+description = "Local self-learning RAG system for Wireshark logs"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+  {name = "pkbythebay29", email = "kannan@haztechrisk.org"}
+]
+dependencies = [
+  "pyyaml",
+  "watchdog",
+  "sentence-transformers",
+  "faiss-cpu",
+  "ollama"
+]
+
+[project.scripts]
+wireshark-watch = "app.watcher:start_watch"
+wireshark-query = "app.learner:ask_and_learn"
