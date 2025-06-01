@@ -21,32 +21,34 @@ A fully local, self-learning Retrieval-Augmented Generation (RAG) pipeline for a
 ---
 
 ## 📂 Project Structure
+ ```
+. 
+	├── app/                # Core logic
+	├── scripts/            # CLI scripts
+	├── config/             # Config files
+	├── data/               # Vector DB & learned responses
+	├── logs/               # Input PCAPs
+	├── processed/          # Archived PCAPs
+	├── .github/workflows/  # CI/CD workflows
 
-
-
-├── app/                # Core logic
-├── scripts/            # CLI scripts
-├── config/             # Config files
-├── data/               # Vector DB & learned responses
-├── logs/               # Input PCAPs
-├── processed/          # Archived PCAPs
-├── .github/workflows/  # CI/CD workflows
-
+ ```
 ## ⚙️ Installation
 
-#1. Clone the repo
+1. Clone the repo
 
+ ```
 git clone https://github.com/pkbythebay29/wireshark-local-rag-analyst.git
 cd wireshark-local-rag-analyst
+ ```
 
-#2. Install Dependencies
-
+2. Install Dependencies
+ ```
 pip install -r requirements.txt
-
-#3. Configuration
+ ```
+3. Configuration
 
 Edit config/config.yaml:
-
+ ```
 protocol_filter: ["http", "dns"]
 learning: true
 
@@ -55,48 +57,55 @@ llm_model: "llama3"         # or "mistralai/Mistral-7B-Instruct-v0.1"
 
 vector_db_path: "./data/faiss.index"
 learned_store: "./data/learned_data.jsonl"
+ ```
 
-
-#4. Usage
-
+4. Usage
+ ```
 wireshark-watch
-# or
+ ```
+or
+ ```
 python scripts/run_pipeline.py
+ ```
 
 Drop .pcap files into the logs/ folder — they will be processed automatically.
 
 #5.  Ask questions
-
+ ```
 wireshark-query
-# or
+ ```
+or
+ ```
 python scripts/query_logs.py
-
+ ```
 Example questions:
 - What HTTP requests failed with 404?
 - Show DNS queries to suspicious domains.
 - Were there any TCP handshakes that failed?
 
 
-#6. Use as a REST API (MCP server)
+6. Use as a REST API (MCP server)
 
+ ```
 python -m app.mcp_server
-
-
+ ```
+ ```
 curl -X POST http://localhost:8080/query \
      -H "Content-Type: application/json" \
      -d '{"query": "Show me failed DNS requests"}'
+ ```
 
-
-#7. 🤗 Hugging Face Model Support
+7. 🤗 Hugging Face Model Support
 
 You can fork, fine-tune, or use any Hugging Face model by editing config.yaml
 
-#8. Acknowledgements
+8. Acknowledgements
 
 🙏 Acknowledgements
 
-This project stands on the shoulders of open-source giants:
 
+This project stands on the shoulders of open-source giants:
+ ```
     Wireshark/tshark – For deep packet inspection
 
     FAISS – Vector search from Meta
@@ -110,12 +119,11 @@ This project stands on the shoulders of open-source giants:
     Watchdog, FastAPI, Uvicorn, and many more
 
 Thank you to all the contributors making open-source incredible.
-
-#9. 🗺️ Roadmap
+ ```
+9. 🗺️ Roadmap
 
 See ROADMAP.md for planned features and timeline.
 
 #8. License
 📜 License
-
 MIT 
